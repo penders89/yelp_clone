@@ -1,0 +1,12 @@
+%h2 Businesses
+
+%ul.businesses
+  - @businesses.each do |business|
+    %li.business
+      %h3= link_to business.name, business_path(business)
+      %p.rating 
+        3.4 / 5 
+        %span from 8 reviews
+      %p.price= '$' * business.price 
+      %p.description= business.description
+  

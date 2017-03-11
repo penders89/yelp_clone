@@ -1,0 +1,260 @@
+@import 'whitespace-reset';
+
+body {
+  font: 14px Helvetica, Arial, sans-serif;
+  
+}
+header {
+  .top-bar {
+    background-color: #d32323;
+    .top-bar-content {
+      margin: 0 300px;
+      padding: 10px 0;
+      h1 {
+        display: inline-block;
+        font-size: 30px;
+        color: #000000;
+        a {
+          text-decoration: none;
+        }
+      }
+      
+      >a {
+        display: inline-block;
+        font-size: 16px;       
+        padding: 8px 0;
+        float: right;
+        color: white;
+      }
+    }
+  }
+
+  nav {
+    background-color: #bd1f1f;
+    ul {
+      margin: 0 300px;
+      li {
+        display: inline-block;
+        padding: 5px 8px;
+        a {
+          color: #ffffff;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+      
+      li:first-of-type {
+        padding-left: 0px;
+      }
+      
+      li.login {
+        float: right;
+      }
+    }
+  }
+}
+
+div.alert {
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin: 10px 0;
+  border-radius: 3px;
+}
+
+div.alert-success {
+  background-color: #79fc84;
+}
+
+div.alert-danger {
+  background-color: #f97272;
+}
+
+main {
+  margin: 0 300px;
+  
+  h2 {
+    padding: 10px 0;
+    font-size: 24px;
+  }
+  
+  ul.businesses {
+    li.business {
+      padding: 20px;
+      border-top: 1px solid #cccccc;
+      
+      h3 a {
+        display: block;
+        font-size: 24px;
+        color: #0000ff;
+        text-decoration: none;
+        font-weight: normal;
+      }
+      
+      p.rating { 
+        padding-top: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        
+        span {
+          font-weight: normal;
+          color: #aaaaaa;
+          margin-left: 5px;
+        }
+      }
+      
+      p.price {
+        padding-top: 5px;
+        font-size: 16px;
+        letter-spacing: 5px;
+      }
+      
+      p.description {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+#new_business, #sign-up, #login{
+  label, input, select {
+    display: block;
+  }
+  
+  label {
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  
+  input[type="text"],input[type="password"],input[type="email"], textarea {
+    width: 500px;
+    padding: 5px;
+  }
+  
+  select {
+    padding: 5px;
+    text-align-last: center;
+  }
+  
+  input[type="submit"] {
+    margin-top: 20px;
+    background: none;
+    border: 1px solid black;
+    display: block;
+    padding: 10px;
+    border-radius: 3px;
+    
+    &:hover {
+      cursor: pointer;
+      background-color: #dddddd;
+    }
+  }
+  
+  span.help-block {
+    display: block;
+    color: red;
+  }
+}
+
+div.full-business-description {
+  border-bottom: 1px solid #cccccc;
+
+  p.price {
+    letter-spacing: 5px;
+    font-size: 20px;
+  }
+  
+  p.rating {
+    margin-top: 5px;
+    font-size: 20px;
+    
+    span {
+      margin-left: 10px;
+      color: #aaaaaa;
+    }
+  }
+  
+  p.description {
+    margin: 10px 0;
+  }
+}
+
+div.reviews {
+  h3 {
+    border-top: 1px solid #cccccc;
+    font-size: 30px;
+    font-weight: normal;
+    color: #bd1f1f;
+    margin-top: 15px;
+    padding-top: 15px;
+
+  }
+  
+  h4 {
+    font-size: 16px;
+    color: #000000;
+    margin-top: 10px;
+  }
+  
+  #add-review {
+    label, input, select, textarea {
+      display: block;
+      margin-top: 10px;
+    }
+    
+    textarea {
+      width: 300px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px;
+      border: 1px solid black;
+      background: none;
+      border-radius: 3px;
+      
+      &:hover {
+        cursor: pointer;
+        background-color: #dddddd;
+      }
+    }
+  }
+  
+  ul.reviews {
+    margin-top: 10px;
+    li.review {
+      border-bottom: 1px solid #cccccc;
+      display: block;
+      padding: 10px 0;
+      
+      a.user, a.business {
+        font-size: 20px;
+       display: inline-block;
+       width: 200px;
+       vertical-align: top;
+       font-weight: bold;
+      }
+      
+      div.content {
+        display: inline-block;
+        width: 550px;
+        height: 100%;
+        
+        p.rating {
+          font-size: 20px;
+          span {
+            color: #aaaaaa;
+            margin-left: 10px;
+            font-size: 14px;
+          }
+        }
+        
+        p.description {
+          margin-top: 10px;
+        }
+      }
+    }
+    
+    
+  }
+}
