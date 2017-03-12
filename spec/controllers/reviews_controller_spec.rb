@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe ReviewsController do 
+  describe "GET index" do 
+    it "should set the @reviews variable in reverse chronological order" do 
+      review1 = Fabricate(:review, created_at: 2.days.ago)
+      review2 = Fabricate(:review, created_at: 1.days.ago)
+      get :index
+      expect(assigns(:reviews)).to eq([review2, review1])
+    end   
+  end
+  
   describe "POST create" do 
     let(:user) { Fabricate(:user) }
     let(:business) { Fabricate(:business) }

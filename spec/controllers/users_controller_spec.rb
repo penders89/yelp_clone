@@ -57,7 +57,7 @@ describe UsersController do
     end
     
     it "should set the @reviews variable in reverse chronological order" do 
-      expect(assigns(:reviews)).to eq([review2, review])
+      expect(assigns(:reviews)).to eq([review2, review1])
     end
   end
 end
