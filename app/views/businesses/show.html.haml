@@ -15,7 +15,7 @@
     = select_tag :rating, options_for_select((1..5).map{|num| ["#{num} #{'star'.pluralize(num)}", num]})
     = label_tag :content, 'Description'
     = text_area_tag :content, nil, rows: 5
-    = submit_tag
+    = submit_tag 'Add review'
   %h3 Recent reviews
   %ul.reviews
     - @reviews.each do |review|
