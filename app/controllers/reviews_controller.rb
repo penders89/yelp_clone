@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, only: [:create]
+  
+  def index
+    @reviews = Review.all
+  end
   
   def create
     @business = Business.find(params[:business_id])
