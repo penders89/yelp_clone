@@ -42,4 +42,22 @@ describe UsersController do
       end
     end
   end
+  
+  describe "GET show" do 
+    let(:user) { Fabricate(:user) }
+    let(:review1) { Fabricate(:review, user: user, created_at: 2.days.ago) }
+    let(:review2) { Fabricate(:review, user: user, created_at: 1.days.ago) }
+    
+    before do 
+      get :show, id: user.id
+    end
+    
+    it "should set the @user variable" do 
+      expect(assigns(:user)).to eq(user)
+    end
+    
+    it "should set the @reviews variable in reverse chronological order" do 
+      expect(assigns(:reviews)).to eq([review2, review])
+    end
+  end
 end
