@@ -36,7 +36,27 @@ describe SessionsController do
       it "should inform the user something is wrong" do 
         expect(flash.now[:danger]).to be_present
       end
-      
+    end
+  end
+  
+  describe "DELETE destroy" do 
+    let(:user) { Fabricate(:user) }
+    
+    before do 
+      session[:user_id] = user.id
+      delete :destroy
+    end
+    
+    it "should remove the session variable" do 
+      expect(session[:user_id]).to eq(nil)
+    end
+    
+    it "should redirect to the root path" do 
+      expect(response).to redirect_to root_path
+    end
+    
+    it "should inform the user of being logged out" do 
+      expect(flash[:success]).to be_present
     end
   end
 end
