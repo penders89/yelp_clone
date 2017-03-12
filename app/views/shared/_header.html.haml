@@ -2,11 +2,17 @@
   .top-bar
     .top-bar-content
       %h1= link_to "yelp"
-      %a.sign_up Sign up
+      - if !logged_in?
+        = link_to 'Sign up', sign_up_path, class: 'sign_up'
+      - else 
+        = link_to '(logout)', logout_path, method: :delete, class: 'logout'
+        = link_to current_user.username, user_path(current_user), class: 'current-user'
+      
   %nav
     %ul
       %li= link_to 'Businesses', root_path
       %li= link_to 'Add business', new_business_path
       %li See recent reviews
-      %li.login Log in
+      - if !logged_in?
+        %li.login= link_to 'Login', login_path
     
