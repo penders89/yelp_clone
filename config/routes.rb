@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   
   root to: 'businesses#index'
   
-  resources :businesses, only: [:show, :new, :create]
+  resources :businesses, only: [:show, :new, :create] do   
+    resources :reviews, only: [:create]
+  end
   
   get 'sign_up', to: 'users#new'
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show] 
   
   
   get 'login', to: 'sessions#new'

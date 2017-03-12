@@ -12,10 +12,21 @@ describe BusinessesController do
   end
   
   describe "GET show" do 
+    let(:business) { Fabricate(:business) } 
+    let(:review1) { Fabricate(:review, business: business, created_at: 2.days.ago) }
+    let(:review2) { Fabricate(:review, business: business, created_at: 1.days.ago) }
+    
+    before do 
+      get :show, id: business.id
+    end
+
+    
     it "sets @business variable" do 
-      business1 = Fabricate(:business)
-      get :show, id: business1.id
-      expect(assigns(:business)).to eq(business1)
+      expect(assigns(:business)).to eq(business)
+    end
+    
+    it "sets @reviews variable ordered from most recent to oldest" do 
+      expect(assigns(:reviews)).to eq([review2, review1])
     end
   end
   
