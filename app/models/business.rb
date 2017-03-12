@@ -2,6 +2,9 @@ class Business < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description
   
+  has_many :reviews, -> { order('created_at desc') }
+
+  
   validates_presence_of :price
   validates_numericality_of :price, {only_integer: true, 
     greater_than_or_equal_to: 1, less_than_or_equal_to: 4 }

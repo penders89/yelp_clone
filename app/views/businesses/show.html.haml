@@ -9,33 +9,22 @@
 
 .reviews
   %h4 Add Review
-  %form#add-review
-    %label(for="rating") Rating
-    %select(name="rating")
-      %option(value="1") 1 star
-      %option(value="2") 2 stars
-      %option(value="3") 3 stars
-      %option(value="4") 4 stars
-      %option(value="4") 5 stars
-    %label(for="description") Description
-    %textarea(name="description" rows="5")
-    %input(type="submit")
+  = form_tag(business_reviews_path(@business), method: :post, id: 'add-review') do 
+    = label_tag :rating
+    = select_tag :rating, options_for_select((1..5).map{|num| ["#{num} #{'star'.pluralize(num)}", num]})
+    = label_tag :content, 'Description'
+    = text_area_tag :content, nil, rows: 5
+    = submit_tag
   %h3 Recent reviews
   %ul.reviews
-    %li.review
-      %a.user Dermot O'Leary
-      .content
-        %p.rating
-          3 / 5 
-          %span.date left 1 February 2017
-        %p.description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    %li.review
-      %a.user Simon Cowell
-      .content
-        %p.rating
-          4 / 5 
-          %span.date left 1 February 2017
-        %p.description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    - @reviews.each do |review|
+      %li.review
+        %a.user= review.user.username
+        .content
+          %p.rating
+            #{review.rating} / 5
+            %span.date left #{time_ago_in_words(review.created_at)} ago
+          %p.description= review.content
 
   
   
