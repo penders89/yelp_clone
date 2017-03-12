@@ -2,9 +2,10 @@
 
 .full-business-description
   %p.price= "$" * @business.price
-  %p.rating 
-    3.5 / 5 
-    %span from 11 reviews
+  - if !@reviews.empty?
+    %p.rating 
+      #{average_rating(@reviews)} / 5 
+      %span from #{@reviews.count} #{"review".pluralize(@reviews.count)}
   %p.description= @business.description
 
 .reviews
@@ -19,7 +20,7 @@
   %ul.reviews
     - @reviews.each do |review|
       %li.review
-        %a.user= review.user.username
+        = link_to review.user.username, user_path(review.user), class: 'user'
         .content
           %p.rating
             #{review.rating} / 5

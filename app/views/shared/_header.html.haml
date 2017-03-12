@@ -1,7 +1,7 @@
 %header
   .top-bar
     .top-bar-content
-      %h1= link_to "yelp"
+      %h1= link_to "yelp", root_path
       - if !logged_in?
         = link_to 'Sign up', sign_up_path, class: 'sign_up'
       - else 
