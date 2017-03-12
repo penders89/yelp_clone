@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311224244) do
+ActiveRecord::Schema.define(version: 20170311234903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,43 +24,10 @@ ActiveRecord::Schema.define(version: 20170311224244) do
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "queue_items", force: :cascade do |t|
-    t.integer  "rank"
-    t.integer  "user_id"
-    t.integer  "video_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "video_id"
-    t.integer  "rating"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
-    t.string   "full_name",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "videos", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "small_cover", limit: 255
-    t.string   "large_cover", limit: 255
-    t.text     "description"
-    t.integer  "category_id"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
