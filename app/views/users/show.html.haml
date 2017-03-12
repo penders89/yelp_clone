@@ -1,0 +1,14 @@
+%h2= @user.username
+
+.reviews
+  %h3 Recent reviews
+  %ul.reviews
+    - @reviews.each do |review|
+      %li.review
+        = link_to review.business.name, business_path(review.business), class: 'business'
+        .content
+          %p.rating
+            #{review.rating} / 5 
+            %span.date left #{time_ago_in_words(review.created_at)} ago
+          %p.description= review.content
+

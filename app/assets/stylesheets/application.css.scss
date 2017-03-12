@@ -232,7 +232,8 @@ div.reviews {
       padding: 10px 0;
       
       a.user, a.business {
-        font-size: 20px;
+        text-decoration: none;
+        font-size: 16px;
        display: inline-block;
        width: 200px;
        vertical-align: top;

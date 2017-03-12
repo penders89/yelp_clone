@@ -4,9 +4,10 @@
   - @businesses.each do |business|
     %li.business
       %h3= link_to business.name, business_path(business)
-      %p.rating 
-        3.4 / 5 
-        %span from 8 reviews
+      -if !business.reviews.empty?
+        %p.rating 
+          #{average_rating(business.reviews)} / 5 
+          %span from #{business.reviews.count} #{"review".pluralize(business.reviews.count)}
       %p.price= '$' * business.price 
       %p.description= business.description
   
