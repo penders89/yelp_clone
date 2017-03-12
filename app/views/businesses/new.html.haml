@@ -2,7 +2,6 @@
 
 =bootstrap_form_for(@business) do |f|
   = f.text_field :name
-  = f.select :price, (1..4).map{|num| ['#{num} #{pluralize(num, 'star')}', num]}
-    , include_blank: true
+  = f.select :price, (1..4).map{|num| ["#{num} #{'star'.pluralize(num)}", num]}, include_blank: true
   = f.text_area :description, rows: 5
   = f.submit
