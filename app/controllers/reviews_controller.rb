@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.business = @business
     @review.user = current_user
     
-    if @review && @review.save 
+    if @review.save 
       flash[:success] = "Thanks for your review."
       redirect_to business_path(@business) 
     else
