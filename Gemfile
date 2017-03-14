@@ -12,6 +12,7 @@ gem 'pg'
 gem 'byebug'
 gem 'bootstrap_form'
 gem 'bcrypt'
+gem 'will_paginate'
 
 group :development do
   gem 'thin'
@@ -30,7 +31,7 @@ end
 
 group :test do
   gem 'database_cleaner', '1.4.1'
-  gem 'shoulda-matchers' , '2.7.0'
+  gem 'shoulda'
   gem 'vcr', '2.9.3'
   gem 'capybara'
 end

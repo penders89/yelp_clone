@@ -8,6 +8,7 @@ describe ReviewsController do
       get :index
       expect(assigns(:reviews)).to eq([review2, review1])
     end   
+    
   end
   
   describe "POST create" do 

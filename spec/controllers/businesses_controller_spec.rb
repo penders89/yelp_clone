@@ -9,6 +9,14 @@ describe BusinessesController do
       get :index
       expect(assigns(:businesses)).to eq([business1, business2])
     end
+    
+    it "only returns 8 businesses" do 
+      arr = []
+      9.times { arr.push(Fabricate(:business)) }
+      arr.pop
+      get :index
+      expect(assigns(:businesses)).to match_array(arr)
+    end
   end
   
   describe "GET show" do 
