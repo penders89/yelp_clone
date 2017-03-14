@@ -13,6 +13,8 @@ gem 'byebug'
 gem 'bootstrap_form'
 gem 'bcrypt'
 gem 'will_paginate'
+gem 'faker'
+
 
 group :development do
   gem 'thin'
@@ -23,7 +25,6 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-  gem 'faker'
   gem 'rspec-rails'
   gem 'fabrication'
 
